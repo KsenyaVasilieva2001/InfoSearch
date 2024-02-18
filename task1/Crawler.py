@@ -1,6 +1,5 @@
 import os
 import requests
-import bs4
 from bs4 import BeautifulSoup
 import urllib.request
 import urllib.parse
@@ -10,9 +9,6 @@ def get_text_from_page(url):
     request = requests.get(url)
     if request.status_code == 200:
         soup = BeautifulSoup(urllib.request.urlopen(url), 'html.parser')
-        tags = ['style', 'link', 'script']
-        for tag in soup.find_all(tags):
-            tag.extract()
         return str(soup)
     return None
 
