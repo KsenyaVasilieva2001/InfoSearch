@@ -34,7 +34,7 @@ def read_tf_idf(folder_name, lemmas):
             lines = file.readlines()
             for i in range(len(lines)):
                 lemma, idf, tf_idf = lines[i].split(' ')
-                matrix[file_number - 1][lemmas.index(lemma)] = float(tf_idf)
+                matrix[file_number][lemmas.index(lemma)] = float(tf_idf)
     return matrix
 
 
@@ -63,11 +63,14 @@ class VectorSearcher:
         i = 1
         for row in self.matrix:
             dist = 1 - distance.cosine(vector, row)
-            if dist > 0:
+            if 0 < dist < 1:
                 similarities[i] = dist
             i += 1
         sorted_similarities = sorted(similarities.items(), key=lambda item: item[1], reverse=True)
-        result = [self.links[str(doc[0])] for doc in sorted_similarities]
+        if not sorted_similarities:
+            result = []
+        else:
+            result = [self.links[str(doc[0])] for doc in sorted_similarities]
         return result
 
 

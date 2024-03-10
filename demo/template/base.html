@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('serve_static', filename='style.css') }}">
+    <title>Поиск</title>
+</head>
+<body>
+    <div class="title">
+            <h1>Поиск</h1>
+    </div>
+    <div class="search_class">
+        <form action="/" method="get">
+          <input name="query" placeholder="Искать..." type="text">
+          <button type="submit">Поиск</button>
+        </form>
+        {% if result %}
+            <h3>Результат поиска:</h3>
+            {% for item in result %}
+                <p>
+                    <a href="{{item}}">{{item}}</a>
+                </p>
+            {% endfor %}
+        {% else %}
+            <h3>Ничего не найдено</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
