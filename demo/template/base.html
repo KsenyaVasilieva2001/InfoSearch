@@ -6,10 +6,10 @@
     <title>Поиск</title>
 </head>
 <body>
-    <div class="title">
-            <h1>Поиск</h1>
-    </div>
     <div class="search_class">
+        <div class="title">
+            <h1>Поиск</h1>
+        </div>
         <form action="/" method="get">
           <input name="query" placeholder="Искать..." type="text">
           <button type="submit">Поиск</button>
@@ -22,7 +22,7 @@
                 </p>
             {% endfor %}
         {% else %}
-            <h3>Ничего не найдено</h3>
+          <h3>Ничего не найдено</h3>
         {% endif %}
     </div>
 </body>

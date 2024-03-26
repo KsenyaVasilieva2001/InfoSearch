@@ -3,21 +3,29 @@
 }
 
 body{
+    background: #F9F0DA;
     margin: 0;
 }
+
 
 div {
     padding: 30px 0
 }
 
+.search_class {
+    max-width: 500px;
+    width: 70%;
+    margin-left: 5%;
+    font-family: 'Verdana', sans-serif;
+}
+h1, h3 {
+    font-weight: bold;
+    color: #7BA7AB;
+    margin-bottom: 10px;
+}
 form {
   position: relative;
-  width: 300px;
   margin: 0 auto;
-}
-
-.search_class {
-    background: #A3D0C3;
 }
 
 .search_class input {
@@ -27,25 +35,32 @@ form {
   border: 2px solid #7BA7AB;
   border-radius: 5px;
   outline: none;
-  background: #F9F0DA;
+  background: white;
   color: #9E9C9C;
 }
 
 .search_class button {
   position: absolute;
+  padding: 10px;
   top: 0;
   right: 0px;
-  width: 42px;
-  height: 42px;
+  width: 25%;
+  height: 100%;
   border: none;
   background: #7BA7AB;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+  color: white;
 }
-
-.search_class button:before {
-  content: "\f002";
-  font-family: FontAwesome;
-  font-size: 16px;
-  color: #F9F0DA;
+.search_class a[href] {
+    /* Add ellipsis at the end if text does not fit in given width */
+    text-overflow: ellipsis;
+    /* Have to add this line to make upper line work */
+    overflow: hidden;
+    /* Decide what is the longest link width in given units (px, em, rem etc.) */
+    max-width: 300px;
+    /* Element has to be inline-block to have width and fit inline in the same time */
+    display: inline-block;
+    /* We want to have all the link in one line without wrapping */
+    white-space: nowrap;
 }
